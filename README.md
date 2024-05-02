@@ -115,30 +115,30 @@
 - Language
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
  
-      ![train Language](image/1._train_Language.png)
+      ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/1._train_Language.png)
 
-      ![validation Language](image/2._validation_Language.png)
+      ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/2._validation_Language.png)
       
 - Orientation
     - 대부분 수직(Horizontal) 방향.
  
-      ![train Orientation](image/3._train_Orientation.png)
+      ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/3._train_Orientation.png)
 
-      ![validation Orientation](image/4._validation_Orientation.png)
+      ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/4._validation_Orientation.png)
       
 - 이미지 당 Word box 개수
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
  
-      ![train wordbox](image/5._train_wordbox.png)
+      ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/5._train_wordbox.png)
 
-      ![validation wordbox](image/6._validation_wordbox.png)
+      ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/6._validation_wordbox.png)
       
 - Wordbox 밀도 분포
     - 중앙에 wordbox 밀집.
  
-      ![train density](image/7._train_density.png)
+      ![train density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/7._train_density.png)
 
-      ![validation density](image/8._validation_density.png)
+      ![validation density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/8._validation_density.png)
 
 ### Data Processing
 
