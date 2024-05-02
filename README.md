@@ -115,30 +115,30 @@
 - Language
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
  
-      ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/1_train_Language.png)
+      ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/1_train_Language.png?raw=true)
 
-      ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/2_validation_Language.png)
+      ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/2_validation_Language.png?raw=true)
       
 - Orientation
     - 대부분 수직(Horizontal) 방향.
  
-      ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/3_train_Orientation.png)
+      ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/3_train_Orientation.png?raw=true)
 
-      ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/4_validation_Orientation.png)
+      ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/4_validation_Orientation.png?raw=true)
       
 - 이미지 당 Word box 개수
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
  
-      ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/5_train_wordbox.png)
+      ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/5_train_wordbox.png?raw=true)
 
-      ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/6_validation_wordbox.png)
+      ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/6_validation_wordbox.png?raw=true)
       
 - Wordbox 밀도 분포
     - 중앙에 wordbox 밀집.
  
-      ![train density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/7_train_density.png)
+      ![train density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true)
 
-      ![validation density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/image/8_validation_density.png)
+      ![validation density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true)
 
 ### Data Processing
 
