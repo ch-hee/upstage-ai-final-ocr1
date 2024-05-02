@@ -30,22 +30,50 @@
 
 ### Directory
 
-- _Insert your directory structure_
-
-e.g.
 ```
-├── code
-│   ├── jupyter_notebooks
-│   │   └── model_train.ipynb
-│   └── train.py
-├── docs
-│   ├── pdf
-│   │   └── (Template) [패스트캠퍼스] Upstage AI Lab 1기_그룹 스터디 .pptx
-│   └── paper
-└── input
-    └── data
-        ├── eval
-        └── train
+├── datasets
+│   ├─── images
+│   │   ├── train
+│   │   │   ├── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   │   │   ├── ...
+│   │   │   └── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   │   ├── val
+│   │   │   ├── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   │   │   ├── ...
+│   │   │   └── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   │   └── test
+│   │   │   ├── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   │   │   ├── ...
+│   │   │   └── drp.en_ko.in_house.selectstar_NNNNNN.jpg
+│   └─── jsons
+│       ├── train.json
+│       ├── val.json
+│        └── test.json
+└─── configs
+    ├── preset
+    │   ├── example.yaml
+    │   ├── base.yaml
+    │   ├── datasets
+    │   │   └── db.yaml
+    │   ├── lightning_modules
+    │   │   └── base.yaml
+    │   ├── metrics
+    │   │   └── cleval.yaml
+    │   └── models
+    │       ├── decoder
+    │       │   └── unet.yaml
+    │       ├── encoder
+    │       │   └── timm_backbone.yaml
+    │       ├── head
+    │       │   └── db_head.yaml
+    │       ├── loss
+    │       │   └── db_loss.yaml
+    │       ├── postprocess
+    │       │   └── base.yaml
+    │       └── model_example.yaml
+    ├── train.yaml
+    ├── test.yaml
+    └── predict.yaml
 ```
 
 ## 3. Data descrption
@@ -113,7 +141,9 @@ e.g.
 
 - _Write model train and test process with capture_
 
-## 5. Result
+### summary
+
+#### Model
 
 | 구분     | 모델       | 설명 | Model Stats |
 |----------|------------|-----------------------------------------|-------------|
@@ -126,6 +156,32 @@ e.g.
 |          | Efficient v2 | ConvNext와 근접한 성능 나타냄          | Params (M): 8.1, GMACs: 0.8, Activations (M): 4.6 |
 | Decoder  | Unet       | decoder Base 모델                       |             |
 
+#### Hyper-parameter tuning 
+
+| 백본    | 인코더 모델     | 하이퍼파라미터 / 변경 작업                                           | H-Mean | Precision | Recall |
+|---------|----------------|--------------------------------------------------------------------|--------|-----------|--------|
+| DBNET   | Resnet18       | 기본 설정                                                          | 0.8818 | 0.9651    | 0.8194 |
+| DBNET   | Efficientnet b0| 기본 설정                                                          | 0.9084 | 0.9665    | 0.8631 |
+| DBNET   | Convnext       | 기본 설정                                                          | 0.9084 | 0.9665    | 0.8631 |
+| DBNET   | Convnext       | "use_polygon: True <br> box_thresh: 0.5"                           | 0.9756 | 0.9762    | 0.9761 |
+| DBNET   | Convnext       | thresh_map_loss_weight: 12.0                                       | 0.9775 | 0.9791    | 0.9767 |
+| DBNET++ | Convnext       | crop_image 사용                                                    | 0.9783 | 0.9795    | 0.9782 |
+| DBNET++ | Convnext       | "crop_image 사용 <br> box_thresh: 0.47 <br> max_candidates: 500 <br> negative_ratio: 3.5 <br> thresh_map_loss_weight: 12.0" | 0.9835 | 0.9842    | 0.9832 |
+| DBNET++ | Convnext       | Train의 word box 수정                                              | 0.9820 | 0.9878    | 0.9767 |
+
+#### Status of implementation of suggestions
+
+| 의견                                            | 구현 유무          | 비고             |
+|-------------------------------------------------|-------------------|------------------|
+| DBNet ++ 코드 테스트 해보기                      | 창희님 구현 및 적용|                  |
+| 전/후처리 모듈 추가하기 - Rembg (배경이미지를 검정색으로 변환) | 승현님 구현 및 적용|                  |
+| SOTA 모델로 학습 - TextFuseNet, MixNet          | 미구현            |                  |
+| torchvision.Compose의 ToTensor 조언            | 구현              |                  |
+| 전/후처리 모듈 추가하기 - thin-plate-spline 알고리즘 | 미구현            |                  |
+| 전/후처리 모듈 추가하기 - Equalize historam    | 미적용            |                  |
+
+
+## 5. Result
 
 ### Leader Board
 
