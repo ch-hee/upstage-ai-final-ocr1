@@ -1,7 +1,7 @@
 # Receipt Text Detection | 영수증 글자 검출
 ## OCR 1조
 
-| ![강승현](https://files.slack.com/files-tmb/T05UGFFGL07-F071STU5T3L-2760f45993/____________________________720.jpg) | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | ![문정의](https://files.slack.com/files-tmb/T05UGFFGL07-F071NTSPAKU-d427f15783/kakaotalk_20240502_190837783_720.jpg) |
+| ![강승현](https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/c5394800-bd8d-4453-a6b1-f1e44822316b) | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | ![문정의](https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/7f4da56b-a35c-4cba-93c1-e5003749d008) |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 |            [강승현](https://github.com/kangggggggg)             |            [김창희](https://github.com/ch-hee)             |            [문정의](https://github.com/axa123-moon)             |
 |                            👑                             |                                                         |                                                         |
@@ -149,30 +149,35 @@ torchvision==0.16.2+cu118
 - **Language**
   
     - train Language
+      
       ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/1_train_Language.png?raw=true)
 
     - validation Language
+      
       ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/2_validation_Language.png?raw=true)
 
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
       
 - **Orientation**
 
-    - train Orientation 
+    - train Orientation
+      
       ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/3_train_Orientation.png?raw=true)
 
     - validation Orientation
+      
       ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/4_validation_Orientation.png?raw=true)
 
     - 대부분 수직(Horizontal) 방향.
       
 - **이미지 당 Word box 개수**
 
-    - train wordbox 
+    - train wordbox
+      
       ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/5_train_wordbox.png?raw=true)
-      *train wordbox*
 
     - validation wordbox
+      
       ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/6_validation_wordbox.png?raw=true)
 
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
@@ -180,9 +185,11 @@ torchvision==0.16.2+cu118
 - **Wordbox 밀도 분포**
 
     - train wordbox density
+      
       ![train wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true)
 
     - validation wordbox density
+      
       ![validation wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true)
 
     - 중앙에 wordbox 밀집.
@@ -192,7 +199,9 @@ torchvision==0.16.2+cu118
 - 배경 제거를 위한 방법
   
     - Rembg
+      
       ![Rembg](https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-2.jpg)
+      
         - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
     
     - Crop
