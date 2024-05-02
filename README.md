@@ -15,35 +15,65 @@
 ### Requirements
 
 hydra-core==1.3.2
+
 imageio==2.33.0
+
 lightning==2.1.3
+
 pytorch-lightning==2.1.3
+
 matplotlib==3.8.2
+
 numpy==1.26.2
+
 numba==0.58.1
+
 opencv-python==4.8.1.78
+
 pandas==2.1.4
+
 pathlib==1.0.1
+
 Pillow==10.1.0
+
 Polygon3==3.0.9.1
+
 pyclipper==1.3.0.post5
+
 PyYAML==6.0.1
+
 safetensors==0.4.1
+
 setuptools==69.0.3
+
 scikit-image==0.22.0
+
 scikit-learn==1.3.2
+
 scipy==1.11.4
+
 seaborn==0.13.0
+
 shapely==2.0.2
+
 tensorboard==2.15.1
+
 tensorboard-data-server==0.7.2
+
 timm==0.9.12
+
 torchmetrics==1.2.1
+
 tqdm==4.66.1
+
 wandb==0.16.1
+
 --extra-index-url https://download.pytorch.org/whl/cu118
+
 torch==2.1.2+cu118
+
 --extra-index-url https://download.pytorch.org/whl/cu118
+
 torchvision==0.16.2+cu118
 
 ## 1. Competiton Info
@@ -198,7 +228,7 @@ torchvision==0.16.2+cu118
 
 - 배경 제거를 위한 방법
   
-    - **Rembg** 이미지에서 배경을 제거하는 라이브러리
+    - **Rembg** : 이미지에서 배경을 제거하는 라이브러리
       
     <p style="display: flex;align-items: center;justify-content: center;">
       <img alt="example car-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-1.jpg" width="100" />
