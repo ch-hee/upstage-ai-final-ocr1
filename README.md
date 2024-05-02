@@ -75,14 +75,33 @@ e.g.
                             - X Position, Y Position : 검출한 Text Region의 이미지 상 좌표입니다. 데이터 원본 이미지 기준입니다.
                             - ... : 좌표는 최소 4점 이상 존재해야 평가 대상이 됩니다. 4점 미만의 경우 평가에서 예외처리 됩니다.
 
+- 평가 Metric 본 대회에서는 리더보드 순위를 CLEval Metric을 이용하여 도출한 H-Mean (Higher is better)으로 순위를 결정
+    - [CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)
+        - OCR Task에서 Text Detection을 위한 Character-level 평가 도구
+        - 문자 인식 정확도에 중점을 두며, 모델이 얼마나 정확하게 문자를 인식하고 있는지에 대한 평가 기준을 제공(ex. "RIVERSIDE"를 "RIVER" "SIDE"로 검출 하더라도 Text Detection으로는 문제가 없으므로, 이런 유형의 문제를 해결하고자 고안)
+    - H-Mean
+        -     
 
 ### EDA
 
-- _Describe your EDA process and step-by-step conclusion_
+- Language
+    - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
+      
+- Orientation
+    - 대부분 수직(Horizontal) 방향.
+      
+- 이미지 당 Word box 개수
+    - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
+      
+- Wordbox 밀도 분포
+    - 중앙에 wordbox 밀집.
 
 ### Data Processing
 
-- _Describe data processing process (e.g. Data Labeling, Data Cleaning..)_
+- [Rembg](https://github.com/danielgatis/rembg)
+    - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
+
+- Crop
 
 ## 4. Modeling
 
@@ -96,10 +115,22 @@ e.g.
 
 ## 5. Result
 
+| 구분     | 모델       | 설명 | Model Stats |
+|----------|------------|-----------------------------------------|-------------|
+| Backbone | DBNET      | Backbone Base 모델                      |             |
+|          | DBNET++    | Adaptive Scale Fusion Module 적용하여 성능 향상. 관련 코드 작성하여 적용함 |             |
+| Encoder  | Resnet18   | encoder Base 모델                       | Params (M): 11.7, GMACs: 1.8, Activations (M): 2.5 |
+|          | ConvNext   | 가장 성능이 좋게 평가됨                  | Params (M): 28.6, GMACs: 4.5, Activations (M): 13.4 |
+|          | Efficient b0 | ConvNext와 근접한 성능 나타냄          | Params (M): 5.3, GMACs: 0.4, Activations (M): 6.7 |
+|          | Efficient b5 | ConvNext와 근접한 성능 나타냄          | Params (M): 30.4, GMACs: 10.5, Activations (M): 98.9 |
+|          | Efficient v2 | ConvNext와 근접한 성능 나타냄          | Params (M): 8.1, GMACs: 0.8, Activations (M): 4.6 |
+| Decoder  | Unet       | decoder Base 모델                       |             |
+
+
 ### Leader Board
 
 - _Insert Leader Board Capture_
-- _Write rank and score_
+- H-mean : 0.9835
 
 ### Presentation
 
@@ -113,4 +144,5 @@ e.g.
 
 ### Reference
 
-- _Insert related reference_
+- [CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)
+- [Rembg](https://github.com/danielgatis/rembg)
