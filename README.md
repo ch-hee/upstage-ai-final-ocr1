@@ -1,16 +1,17 @@
-# Title (Please modify the title)
-## Team
+# Receipt Text Detection | 영수증 글자 검출
+## OCR 1조
 
-| ![박패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![이패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![오패캠](https://avatars.githubusercontent.com/u/156163982?v=4) |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [박패캠](https://github.com/UpstageAILab)             |            [이패캠](https://github.com/UpstageAILab)             |            [최패캠](https://github.com/UpstageAILab)             |            [김패캠](https://github.com/UpstageAILab)             |            [오패캠](https://github.com/UpstageAILab)             |
-|                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |
+| ![강승현](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | ![문정의](https://avatars.githubusercontent.com/u/156163982?v=4) |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+|            [강승현](https://github.com/UpstageAILab)             |            [김창희](https://github.com/UpstageAILab)             |            [문정의](https://github.com/UpstageAILab)             |
+|                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |
+
 
 ## 0. Overview
 ### Environment
 - **(컴퓨팅 환경)** 각자의 RTX 3090 서버를 VSCode와 SSH로 연결하여 사용
 - **(협업 환경)** Github, Wandb
-- **(의사소통)** Slack, Zoom, Google meet
+- **(의사소통)** Slack, Zoom, Google Meet
 
 ## 1. Competiton Info
 
@@ -101,55 +102,74 @@
                             - ... : 좌표는 최소 4점 이상 존재해야 평가 대상이 됩니다. 4점 미만의 경우 평가에서 예외처리 됩니다.
 
 - 평가 Metric 본 대회에서는 리더보드 순위를 CLEval Metric을 이용하여 도출한 H-Mean (Higher is better)으로 순위를 결정
-    - **[CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)**
+    - **CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)**
         - OCR Task에서 Text Detection을 위한 Character-level 평가 도구
         - 문자 인식 정확도에 중점을 두며, 모델이 얼마나 정확하게 문자를 인식하고 있는지에 대한 평가 기준을 제공합니다(ex. "RIVERSIDE"를 "RIVER" "SIDE"로 검출 하더라도 Text Detection으로는 문제가 없으므로, 이런 유형의 문제를 해결하고자 고안).
     - **H-Mean**
-        ![H-mean]()     
+      <figure>
+        <>
+        <figcaption>H-Mean</figcaption>
+      </figure>    
 
 ### EDA
 
-- Language
+- **Language**
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
  
-      ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/1_train_Language.png?raw=true)
-      *train Language*
-
-      ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/2_validation_Language.png?raw=true)
-      *validation Language*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/1_train_Language.png?raw=true" alt="train Language">
+        <figcaption>train Language</figcaption>
+      </figure>
       
-- Orientation
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/2_validation_Language.png?raw=true" alt="validation Language">
+        <figcaption>validation Language</figcaption>
+      </figure>
+      
+- **Orientation**
     - 대부분 수직(Horizontal) 방향.
  
-      ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/3_train_Orientation.png?raw=true)
-      *train Orientation*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/3_train_Orientation.png?raw=true" alt="train Orientation">
+        <figcaption>train Orientation</figcaption>
+      </figure>
 
-      ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/4_validation_Orientation.png?raw=true)
-      *validation Orientation*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/4_validation_Orientation.png?raw=true" alt="validation Orientation">
+        <figcaption>validation Orientation</figcaption>
+      </figure>
       
-- 이미지 당 Word box 개수
+- **이미지 당 Word box 개수**
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
  
-      ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/5_train_wordbox.png?raw=true)
-      *train wordbox*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/5_train_wordbox.png?raw=true" alt="train wordbox">
+        <figcaption>train wordbox</figcaption>
+      </figure>
 
-      ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/6_validation_wordbox.png?raw=true)
-      *validation wordbox*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/6_validation_wordbox.png?raw=true" alt="validation wordbox">
+        <figcaption>validation wordbox</figcaption>
+      </figure>
       
-- Wordbox 밀도 분포
+- **Wordbox 밀도 분포**
     - 중앙에 wordbox 밀집.
  
-      ![train wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true)
-      *train wordbox density*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true" alt="train wordbox density">
+        <figcaption>그림 7: train wordbox density</figcaption>
+      </figure>
 
-      ![validation wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true)
-      *validation wordbox density*
+      <figure>
+        <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true" alt="validation wordbox density">
+        <figcaption>validation wordbox density</figcaption>
+      </figure>
 
 ### Data Processing
 
 - 배경 제거를 위한 방법
   
-    - [Rembg](https://github.com/danielgatis/rembg)
+    - Rembg
         - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
     
     - Crop
@@ -163,8 +183,10 @@
     - Base 모델
        
 - **DBNET++**
-  [DBNET++]()
-  *DBNET++*
+  <figure>
+    <img src=>
+    <figcaption>DBNET++</figcaption>
+  </figure>
 
     - DBNET++는 DBNET의 확장 버전으로, 성능 향상을 위해 추가적인 모듈(Adaptive Scale Fusion Module)을 적용한 모델입니다.
         - **adaptive_scale_fusion.py** 다양한 크기의 텍스트에 대응하기 위해 이미지의 다른 해상도에서 특징을 추출하고 이를 융합하는 방식을 사용합니다.
@@ -172,11 +194,15 @@
 
 ### Modeling Process
 
-- **강승현**
-
-- **김창희**
-
-- **문정의**
+- April 12, 2024 - Baseline 코드 제출. H-Mean(0.8818)
+- April 19, 2024 - encoder backbone을 (resnet18 -> efficientnet_b0) 로 설정했을 때 H-Mean이 증가(0.8818 -> 0.9084)
+- April 22, 2024 - db_head.yaml에서 use_polygon : True 로 설정했을 때 H-Mean이 증가(0.9084 -> 0.9756)
+- April 24, 2024 - encoder backbone을 convnext_tiny.fb_in22k, epoch을 (10 -> 15), batch_size를 (16 -> 8), box_thresh를 (0.4 -> 0.5) 로 설정했을 때 H-Mean이 증가(0.9756 -> 0.9763)
+- April 25, 2024 - DBNet++ 구현. DBNet++ 사용시 H-Mean 증가(0.9763 -> 0.9783)
+- April 26, 2024 - Crop 구현. DBNet++에서 encoder backbone을 convnext_base.fb_in22k_ft_in1k_384, box_thresh를 (0.5 -> 0.47), max_candidates를 (300 -> 500), negative_ratio를 (3.0 -> 3.5), thresh_map_loss_weight를 (10.0 -> 12.0) 로 설정했을 때 H-Mean이 증가(0.9783 -> 0.9832)
+- April 27, 2024 - Rembg 구현.
+- April 29, 2024 - epoch 변화 후 H-Mean 증가(0.9832 -> 0.9835)
+- May 1, 2024 - train, validation에서 비정상적이라 판단된 word box 제거(ex. 워터마크, 모자이크 된 곳에 word box가 있는 것, 빈 박스, 글자가 아닌 것, 영수증 밖에 있는 word box, 손가락에 가려진 word box 등).
 
 ### summary
 
@@ -222,8 +248,19 @@
 
 ### Leader Board
 
-- _Insert Leader Board Capture_
-- H-mean : 0.9835
+<figure>
+    <>
+    <figcaption>H-Mean</figcaption>
+</figure>  
+      
+- Public H-mean : 0.9835, 0.9832 **(1)**
+  
+<figure>
+    <>
+    <figcaption>H-Mean</figcaption>
+</figure> 
+        
+- Private H-mean : 0.9815 **(1)**
 
 ### Presentation
 
@@ -231,11 +268,9 @@
 
 ## etc
 
-### Meeting Log
-
-- _Insert your meeting log link like Notion or Google Docs_
-
 ### Reference
 
 - [CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)
 - [Rembg](https://github.com/danielgatis/rembg)
+- [DBNET++](https://github.com/MhLiao/DB)
+- [Real-Time Scene Text Detection with Differentiable Binarization and Adaptive Scale Fusion](https://paperswithcode.com/paper/real-time-scene-text-detection-with-1)
