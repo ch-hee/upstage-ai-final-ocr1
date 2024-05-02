@@ -1,11 +1,10 @@
 # Receipt Text Detection | 영수증 글자 검출
 ## OCR 1조
 
-| <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/c5394800-bd8d-4453-a6b1-f1e44822316b" width="150" height="150" alt="강승현">
- | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/7f4da56b-a35c-4cba-93c1-e5003749d008" width="150" height="150" alt="문정의"> |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [강승현](https://github.com/kangggggggg)             |            [김창희](https://github.com/ch-hee)             |            [문정의](https://github.com/axa123-moon)             |
-|                            👑                             |                                                         |                                                         |
+| <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/c5394800-bd8d-4453-a6b1-f1e44822316b" width="150" height="150" alt="강승현"> | <img src="https://avatars.githubusercontent.com/u/156163982?v=4" width="150" height="150" alt="김창희"> | <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/7f4da56b-a35c-4cba-93c1-e5003749d008" width="150" height="150" alt="문정의"> |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                          [강승현](https://github.com/kangggggggg)                                                                          |                                                                          [김창희](https://github.com/ch-hee)                                                                           |                                                                          [문정의](https://github.com/axa123-moon)                                                                          |
+|                                                                              👑                                                                              |                                                                                                                                      |                                                                                                                                      |
 
 
 ## 0. Overview
@@ -199,7 +198,7 @@ torchvision==0.16.2+cu118
 
 - 배경 제거를 위한 방법
   
-    - Rembg
+    - **Rembg** 이미지에서 배경을 제거하는 라이브러리
       
     <p style="display: flex;align-items: center;justify-content: center;">
       <img alt="example car-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-1.jpg" width="100" />
@@ -236,10 +235,8 @@ torchvision==0.16.2+cu118
       <img alt="example anime-girl-3" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-3.jpg" width="100" />
       <img alt="example anime-girl-3.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-3.out.png" width="100" />
     </p>
-      
-        - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
     
-    - Crop
+    - **Crop**
         - 배경 제거를 위해 gt의 최소점 x_min, y_min 과 최대점 x_max, y_max를 통해 crop_image의 w, h을 구한 뒤 10% 비율을 적용하여 image를 crop합니다.
 
 ## 4. Modeling
