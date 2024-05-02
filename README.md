@@ -8,18 +8,15 @@
 
 ## 0. Overview
 ### Environment
-- (컴퓨팅 환경) 각자의 RTX 3090 서버를 VSCode와 SSH로 연결하여 사용
-- (협업 환경) Github, Wandb
-- (의사소통) Slack, Zoom, Google meet
-
-### Requirements
-- _Write Requirements_
+- **(컴퓨팅 환경)** 각자의 RTX 3090 서버를 VSCode와 SSH로 연결하여 사용
+- **(협업 환경)** Github, Wandb
+- **(의사소통)** Slack, Zoom, Google meet
 
 ## 1. Competiton Info
 
 ### Overview
 
-- 영수증 글자 검출(Receipt Text Detection) 대회는 인공지능 모델을 이용하여 제공된 영수증 이미지에서 문자의 위치를 정확하게 검출하는 문제에 도전하는 대회입니다
+- 영수증 글자 검출(Receipt Text Detection) 대회는 인공지능 모델을 이용하여 제공된 영수증 이미지에서 문자의 위치를 정확하게 검출하는 문제에 도전하는 대회입니다.
 
 ### Timeline
 
@@ -80,23 +77,23 @@
 
 ### Dataset overview
 
-- (학습 데이터셋)
+- **(학습 데이터셋)**
     - images/train 디렉토리, images/val 디렉토리에 학습용 영수증 이미지가 저장되어 있습니다.
     - jsons 디렉토리에 train.json, val.json 파일이 저장되어 있습니다.
     - 3,273장의 train 이미지, 404장의 validation 영수증 이미지(train / val 의 구분은 학습의 용이함을 위해 구분되어 있지만, 다른 기준으로 재분류 하거나 validation 셋을 학습에 사용하여도 무방).
       
-- (테스트 데이터셋)
+- **(테스트 데이터셋)**
     - images/test 디렉토리에 평가 데이터용 영수증 이미지가 저장되어 있습니다.
     - jsons 디렉토리에 test.json 파일이 저장되어 있습니다.
     - 학습 데이터와 유사한 조건에서 촬영된 413장의 영수증 이미지. 이미지 당 평균 Words수가 동일하게 분배되어 있습니다.
  
-- JSON 상세 설명
-    - images
-        - IMAGE_FILENAME : 이미지 파일 이름이 경로 없이 저장되어 있습니다.
-            - words
-                - nnnn : 이미지마다 검출된 words의 index 번호이며, 0으로 채운 4자리 정수값 입니다. 시작은 1 입니다.
-                    - points
-                        - List
+- **JSON 상세 설명**
+    - **images**
+        - **IMAGE_FILENAME** : 이미지 파일 이름이 경로 없이 저장되어 있습니다.
+            - **words**
+                - **nnnn** : 이미지마다 검출된 words의 index 번호이며, 0으로 채운 4자리 정수값 입니다. 시작은 1 입니다.
+                    - **points**
+                        - **List**
                             - X Position, Y Position : 검출한 Text Region의 이미지 상 좌표입니다. 데이터 원본 이미지 기준입니다.
                             - X Position, Y Position : 검출한 Text Region의 이미지 상 좌표입니다. 데이터 원본 이미지 기준입니다.
                             - X Position, Y Position : 검출한 Text Region의 이미지 상 좌표입니다. 데이터 원본 이미지 기준입니다.
@@ -104,11 +101,11 @@
                             - ... : 좌표는 최소 4점 이상 존재해야 평가 대상이 됩니다. 4점 미만의 경우 평가에서 예외처리 됩니다.
 
 - 평가 Metric 본 대회에서는 리더보드 순위를 CLEval Metric을 이용하여 도출한 H-Mean (Higher is better)으로 순위를 결정
-    - [CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)
+    - **[CLEval (Character-Level Evaluation for Text Detection and Recognition Tasks)](https://github.com/clovaai/CLEval)**
         - OCR Task에서 Text Detection을 위한 Character-level 평가 도구
-        - 문자 인식 정확도에 중점을 두며, 모델이 얼마나 정확하게 문자를 인식하고 있는지에 대한 평가 기준을 제공(ex. "RIVERSIDE"를 "RIVER" "SIDE"로 검출 하더라도 Text Detection으로는 문제가 없으므로, 이런 유형의 문제를 해결하고자 고안)
-    - H-Mean
-        -     
+        - 문자 인식 정확도에 중점을 두며, 모델이 얼마나 정확하게 문자를 인식하고 있는지에 대한 평가 기준을 제공합니다(ex. "RIVERSIDE"를 "RIVER" "SIDE"로 검출 하더라도 Text Detection으로는 문제가 없으므로, 이런 유형의 문제를 해결하고자 고안).
+    - **H-Mean**
+        ![H-mean]()     
 
 ### EDA
 
@@ -116,29 +113,37 @@
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
  
       ![train Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/1_train_Language.png?raw=true)
+      *train Language*
 
       ![validation Language](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/2_validation_Language.png?raw=true)
+      *validation Language*
       
 - Orientation
     - 대부분 수직(Horizontal) 방향.
  
       ![train Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/3_train_Orientation.png?raw=true)
+      *train Orientation*
 
       ![validation Orientation](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/4_validation_Orientation.png?raw=true)
+      *validation Orientation*
       
 - 이미지 당 Word box 개수
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
  
       ![train wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/5_train_wordbox.png?raw=true)
+      *train wordbox*
 
       ![validation wordbox](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/6_validation_wordbox.png?raw=true)
+      *validation wordbox*
       
 - Wordbox 밀도 분포
     - 중앙에 wordbox 밀집.
  
-      ![train density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true)
+      ![train wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/7_train_density.png?raw=true)
+      *train wordbox density*
 
-      ![validation density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true)
+      ![validation wordbox density](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/8_validation_density.png?raw=true)
+      *validation wordbox density*
 
 ### Data Processing
 
@@ -154,11 +159,24 @@
 
 ### Model descrition
 
-- _Write model information and why your select this model_
+- **DBNET**
+    - Base 모델
+       
+- **DBNET++**
+  [DBNET++]()
+  *DBNET++*
+
+    - DBNET++는 DBNET의 확장 버전으로, 성능 향상을 위해 추가적인 모듈(Adaptive Scale Fusion Module)을 적용한 모델입니다.
+        - **adaptive_scale_fusion.py** 다양한 크기의 텍스트에 대응하기 위해 이미지의 다른 해상도에서 특징을 추출하고 이를 융합하는 방식을 사용합니다.
+            - **spatial_attention.py** 주어진 특징 맵에서 중요한 공간적 정보를 강조하는 데 사용됩니다.
 
 ### Modeling Process
 
-- _Write model train and test process with capture_
+- **강승현**
+
+- **김창희**
+
+- **문정의**
 
 ### summary
 
