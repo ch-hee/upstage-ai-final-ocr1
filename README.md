@@ -1,7 +1,8 @@
 # Receipt Text Detection | 영수증 글자 검출
 ## OCR 1조
 
-| ![강승현](https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/c5394800-bd8d-4453-a6b1-f1e44822316b) | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | ![문정의](https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/7f4da56b-a35c-4cba-93c1-e5003749d008) |
+| <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/c5394800-bd8d-4453-a6b1-f1e44822316b" width="150" height="150" alt="강승현">
+ | ![김창희](https://avatars.githubusercontent.com/u/156163982?v=4) | <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/assets/128811347/7f4da56b-a35c-4cba-93c1-e5003749d008" width="150" height="150" alt="문정의"> |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 |            [강승현](https://github.com/kangggggggg)             |            [김창희](https://github.com/ch-hee)             |            [문정의](https://github.com/axa123-moon)             |
 |                            👑                             |                                                         |                                                         |
@@ -142,7 +143,7 @@ torchvision==0.16.2+cu118
         - OCR Task에서 Text Detection을 위한 Character-level 평가 도구
         - 문자 인식 정확도에 중점을 두며, 모델이 얼마나 정확하게 문자를 인식하고 있는지에 대한 평가 기준을 제공합니다(ex. "RIVERSIDE"를 "RIVER" "SIDE"로 검출 하더라도 Text Detection으로는 문제가 없으므로, 이런 유형의 문제를 해결하고자 고안).
     - **H-Mean**
-      ![H-Mean](https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/hmean.png)   
+      <img src="https://github.com/UpstageAILab/upstage-ai-final-ocr1/blob/main/images/hmean.png" width="500" alt="H-Mean">   
 
 ### EDA
 
@@ -200,7 +201,41 @@ torchvision==0.16.2+cu118
   
     - Rembg
       
-      ![Rembg](https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-2.jpg)
+    <p style="display: flex;align-items: center;justify-content: center;">
+      <img alt="example car-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-1.jpg" width="100" />
+      <img alt="example car-1.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-1.out.png" width="100" />
+      <img alt="example car-2" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-2.jpg" width="100" />
+      <img alt="example car-2.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-2.out.png" width="100" />
+      <img alt="example car-3" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-3.jpg" width="100" />
+      <img alt="example car-3.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/car-3.out.png" width="100" />
+    </p>
+    
+    <p style="display: flex;align-items: center;justify-content: center;">
+      <img alt="example animal-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-1.jpg" width="100" />
+      <img alt="example animal-1.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-1.out.png" width="100" />
+      <img alt="example animal-2" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-2.jpg" width="100" />
+      <img alt="example animal-2.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-2.out.png" width="100" />
+      <img alt="example animal-3" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-3.jpg" width="100" />
+      <img alt="example animal-3.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/animal-3.out.png" width="100" />
+    </p>
+    
+    <p style="display: flex;align-items: center;justify-content: center;">
+      <img alt="example girl-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-1.jpg" width="100" />
+      <img alt="example girl-1.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-1.out.png" width="100" />
+      <img alt="example girl-2" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-2.jpg" width="100" />
+      <img alt="example girl-2.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-2.out.png" width="100" />
+      <img alt="example girl-3" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-3.jpg" width="100" />
+      <img alt="example girl-3.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/girl-3.out.png" width="100" />
+    </p>
+    
+    <p style="display: flex;align-items: center;justify-content: center;">
+      <img alt="example anime-girl-1" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-1.jpg" width="100" />
+      <img alt="example anime-girl-1.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-1.out.png" width="100" />
+      <img alt="example anime-girl-2" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-2.jpg" width="100" />
+      <img alt="example anime-girl-2.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-2.out.png" width="100" />
+      <img alt="example anime-girl-3" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-3.jpg" width="100" />
+      <img alt="example anime-girl-3.out" src="https://raw.githubusercontent.com/danielgatis/rembg/master/examples/anime-girl-3.out.png" width="100" />
+    </p>
       
         - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
     
