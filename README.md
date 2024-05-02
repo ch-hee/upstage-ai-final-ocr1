@@ -84,7 +84,7 @@
     - images/train 디렉토리, images/val 디렉토리에 학습용 영수증 이미지가 저장되어 있습니다.
     - jsons 디렉토리에 train.json, val.json 파일이 저장되어 있습니다.
     - 3,273장의 train 이미지, 404장의 validation 영수증 이미지(train / val 의 구분은 학습의 용이함을 위해 구분되어 있지만, 다른 기준으로 재분류 하거나 validation 셋을 학습에 사용하여도 무방).
-    - 
+      
 - (테스트 데이터셋)
     - images/test 디렉토리에 평가 데이터용 영수증 이미지가 저장되어 있습니다.
     - jsons 디렉토리에 test.json 파일이 저장되어 있습니다.
@@ -114,15 +114,31 @@
 
 - Language
     - 대부분은 ['ko'] 인 한국어 이미지(wordbox 내용이 숫자인 경우 포함)
+ 
+      ![train Language](image/1. train Language.png)
+
+      ![validation Language](image/2. validation Language.png)
       
 - Orientation
     - 대부분 수직(Horizontal) 방향.
+ 
+      ![train Orientation](image/3. train Orientation.png)
+
+      ![validation Orientation](image/4. validation Orientation.png)
       
 - 이미지 당 Word box 개수
     - 이미지 당 평균 100개의 이상의 word box가 있는 매우 밀도가 높은 데이터.
+ 
+      ![train wordbox](image/5. train wordbox.png)
+
+      ![validation wordbox](image/6. validation wordbox.png)
       
 - Wordbox 밀도 분포
     - 중앙에 wordbox 밀집.
+ 
+      ![train density](image/7. train density.png)
+
+      ![validation density](image/8. validation density.png)
 
 ### Data Processing
 
