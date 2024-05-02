@@ -126,10 +126,13 @@
 
 ### Data Processing
 
-- [Rembg](https://github.com/danielgatis/rembg)
-    - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
-
-- Crop
+- 배경 제거를 위한 방법
+  
+    - [Rembg](https://github.com/danielgatis/rembg)
+        - 이미지에서 배경을 제거하는 라이브러리인 Rembg 사용
+    
+    - Crop
+        - 배경 제거를 위해 gt의 최소점 x_min, y_min 과 최대점 x_max, y_max를 통해 crop_image의 w, h을 구한 뒤 10% 비율을 적용하여 image를 crop합니다.
 
 ## 4. Modeling
 
