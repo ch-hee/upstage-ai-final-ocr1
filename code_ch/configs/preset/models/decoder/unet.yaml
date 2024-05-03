@@ -1,0 +1,17 @@
+# @package _global_
+
+models:
+  decoder:
+    _target_: ${decoder_path}.UNet
+    # in_channels: [64, 128, 256, 512]  # Input layer channel
+    # in_channels: [24, 32, 104, 352]  # Input layer channel for moblienet v2
+    # in_channels: [256, 512, 1024, 2048]  # Input layer channel for resnet50
+    in_channels: [128, 256, 512, 1024]  # Input layer channel for convnext base
+    # in_channels: [96, 192, 384, 768]  # Input layer channel for convnext tiny
+    # in_channels: [96, 192, 384, 768] # Input layer channel for swin transformer
+    # in_channels: [48, 80, 224, 640] # Input layer channel for efficientnet b7
+    # in_channels: [32, 56, 160, 448] # Input layer channel for efficientnet b7
+    strides: [4, 8, 16, 32]           # Input layer scale
+    inner_channels: 256               # Hidden layer channel
+    output_channels: 64               # output layer channel
+    bias: False

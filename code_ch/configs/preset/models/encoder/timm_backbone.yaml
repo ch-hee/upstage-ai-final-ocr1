@@ -1,0 +1,17 @@
+# @package _global_
+
+models:
+  encoder:
+    _target_: ${encoder_path}.TimmBackbone
+    # model_name: 'resnet18'
+    # model_name: 'mobilenetv2_110d.ra_in1k'
+    # model_name: 'resnet50'
+    # model_name: 'convnext_base.fb_in22k_ft_in1k'
+    model_name: 'convnext_base.fb_in22k_ft_in1k_384'
+    # model_name: 'convnext_tiny.fb_in22k'
+    # model_name: 'convnextv2_base.fcmae_ft_in22k_in1k_384'
+    # model_name: 'swinv2_cr_tiny_ns_224.sw_in1k'
+    # model_name: 'tf_efficientnet_b7.aa_in1k'
+    # model_name: 'efficientnet_b4.ra2_in1k'
+    select_features: [0, 1, 2, 3]            # Output layer
+    pretrained: true
